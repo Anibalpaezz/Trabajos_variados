@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@900&family=DM+Sans:wght@400;500&family=DM+Mono:wght@700&display=swap');
+
+:root {
+    --bg: #f5f0e8;
+    --ink: #111111;
+    --ink-muted: #999;
+    --accent: #d4522a;
+    --transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    min-height: 100vh;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    background-color: var(--bg);
+    color: var(--ink);
+    padding: 60px 24px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 3rem;
+    font-weight: 900;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 4px;
+}
+
+#number {
+    font-family: 'DM Mono', monospace;
+    font-size: 14rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--ink);
+    display: block;
+    min-height: 14rem;
+    margin: 40px 0;
+    transition: transform 0.15s ease, color var(--transition);
+}
+
+#number.bump { transform: scale(1.08); }
+#number:not(:empty) { color: var(--accent); }
+
+#generate {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink);
+    background: transparent;
+    border: 2px solid var(--ink);
+    border-radius: 0;
+    padding: 14px 40px;
+    cursor: pointer;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    transition: background var(--transition), color var(--transition);
+}
+
+#generate:hover {
+    background: var(--ink);
+    color: var(--bg);
+}
+
+#generate:active { opacity: 0.7; }
+
+@media (max-width: 480px) {
+    h1 { font-size: 2rem; }
+    #number { font-size: 7rem; min-height: 7rem; }
+}

@@ -1,0 +1,125 @@
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=VT323&display=swap');
+
+:root {
+    --bg: #050a05;
+    --neon: #39ff14;
+    --neon-dim: rgba(57, 255, 20, 0.15);
+    --neon-glow: rgba(57, 255, 20, 0.5);
+    --text: #c8f7c5;
+    --muted: #4a7a47;
+    --danger: #ff4444;
+    --transition: 0.2s ease;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    min-height: 100vh;
+    text-align: center;
+    font-family: 'Share Tech Mono', monospace;
+    background-color: var(--bg);
+    color: var(--text);
+    padding: 60px 24px;
+    background-image:
+        repeating-linear-gradient(
+            0deg,
+            rgba(57, 255, 20, 0.03) 0px,
+            rgba(57, 255, 20, 0.03) 1px,
+            transparent 1px,
+            transparent 4px
+        );
+}
+
+h1 {
+    font-family: 'VT323', monospace;
+    font-size: 5rem;
+    color: var(--neon);
+    text-shadow: 0 0 10px var(--neon-glow), 0 0 30px var(--neon-glow);
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+    animation: flicker 6s infinite;
+}
+
+@keyframes flicker {
+    0%, 95%, 100% { opacity: 1; }
+    96%            { opacity: 0.6; }
+    97%            { opacity: 1; }
+    98%            { opacity: 0.4; }
+    99%            { opacity: 1; }
+}
+
+p {
+    font-size: 1rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+}
+
+#result {
+    font-family: 'VT323', monospace;
+    font-size: 2.2rem;
+    min-height: 2.6rem;
+    color: var(--neon);
+    letter-spacing: 0.05em;
+    margin-bottom: 32px;
+    text-shadow: 0 0 8px var(--neon-glow);
+}
+
+input[type="number"] {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1.4rem;
+    background: transparent;
+    color: var(--neon);
+    border: 1px solid var(--neon);
+    border-radius: 0;
+    padding: 12px 24px;
+    width: 220px;
+    text-align: center;
+    outline: none;
+    caret-color: var(--neon);
+    box-shadow: 0 0 8px var(--neon-dim), inset 0 0 8px var(--neon-dim);
+    transition: box-shadow var(--transition);
+    display: block;
+    margin: 0 auto 16px;
+}
+
+input[type="number"]:focus {
+    box-shadow: 0 0 16px var(--neon-glow), inset 0 0 12px var(--neon-dim);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+#guessButton {
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 1rem;
+    color: var(--bg);
+    background: var(--neon);
+    border: none;
+    border-radius: 0;
+    padding: 13px 48px;
+    cursor: pointer;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: background var(--transition), box-shadow var(--transition);
+}
+
+#guessButton:hover {
+    background: #fff;
+    box-shadow: 0 0 20px var(--neon-glow);
+}
+
+#guessButton:active { opacity: 0.7; }
+
+@media (max-width: 480px) {
+    h1 { font-size: 3.5rem; }
+    input[type="number"] { width: 180px; }
+}
+
+input[type="number"]
+{
+    -webkit-appearance: textfield !important;
+    -moz-appearance:textfield !important;
+}
